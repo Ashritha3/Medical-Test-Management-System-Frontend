@@ -1,0 +1,25 @@
+.jumbotron
+{
+    background-color: rgb(255, 255, 255);
+    margin-top: 10px;
+    margin-left: 100px;
+    margin-right: 100px;
+    width: 250px;  
+    height: 150px;
+    transition: width 2s, height 2s, transform 2s;  
+    
+}
+
+.jumbotron:hover { 
+    width: 300px;  
+    height: 200px;   
+    transform: rotate(360deg);  
+}
+#Contacts
+{
+    width: 400px;
+}
+#links
+{
+    margin-top: 20px;
+}

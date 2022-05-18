@@ -1,0 +1,65 @@
+img{
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    padding-top: 75px;
+}
+.container
+{
+    margin-top: 20px;
+    /* margin-left: 270px; */
+    padding-top: -1000px;    
+}
+#centerName,#centerId
+{
+    width: 400px;
+}
+button
+{
+    margin-top: 20px;
+    box-shadow: 13px 13px 20px  #5f5f5f;
+    border-radius: 30px;
+}
+.jumbotron
+{
+    margin-top: 100px;
+    margin-left: 300px;
+    padding: 3%;
+    background-color:white; 
+    box-shadow:     
+                13px 13px 20px  #5f5f5f;
+    border-radius: 30px;
+    height:fit-content;
+}
+h2,label
+{
+    margin-left: 10px;
+    margin-bottom: 10px;
+    text-shadow: 8px 8px 8px #aaa;  
+}
+.form-control
+{ 
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 50px;   
+    border: none;
+    outline:none;
+    background: none;
+    font-size: 18px;
+    color: #555;
+    padding:20px 30px 20px 20px;
+    border-radius: 25px;
+    box-shadow:     
+                 8px 8px 8px #cbced1,
+                inset -8px -8px 8px #ffffff;   
+}
+.validations
+  {
+     margin-top: 10px;
+     margin-left: 10px;
+     text-shadow: 8px 8px 8px #aaa;
+
+  }
+.btn btn-success
+{
+    margin-top: 20px;
+}

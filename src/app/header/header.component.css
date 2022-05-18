@@ -1,0 +1,33 @@
+.col
+{
+    text-align: center;
+}
+span
+{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:white;
+    text-shadow: 4px 4px 4px black;
+}
+h2
+{
+    padding-top: 4%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: whitesmoke;
+    text-shadow: 4px 4px 4px black;
+}
+#transaction
+{  
+    transition: width 2s, height 2s, transform 2s; 
+    cursor: pointer;
+}
+#transaction :hover
+{  
+    transform: scale(0.9,0.9)
+}
+nav{
+    padding-top: -10%;
+    /* background-color: rgb(172, 172, 202); */
+    background-color: whitesmoke;
+    /* height: 80px;
+    width: 1800px; */
+}

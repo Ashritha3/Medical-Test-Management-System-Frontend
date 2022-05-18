@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+   <!-- Required meta tags -->
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+   <title>Hello, world!</title>
+</head>
+
+<body>
+   <section>
+      <div class="container-fluid">
+         <div class="row">
+            <div class="col-lg-15">
+               <img src="https://cdn.pixabay.com/photo/2020/08/03/09/39/medical-5459631_960_720.png" class="img-fluid"
+                  height="100%" alt="">
+            </div>
+            <div class="jumbotron">
+               <h2>View All Centers</h2>
+               <hr>
+               <table class="table">
+                  <tr>
+                     <th>Center Id</th>
+                     <th>Center Name</th>
+                     <th>Tests</th>
+                  </tr>
+                  <tr *ngFor="let center of centerList,index as i">
+                     <td>{{center.centerId}}</td>
+                     <td>{{center.centerName}}</td>
+                     <td>
+                        <button type="button" (click)="onClickSubmit(center.centerId)"
+                           class="btn btn-info">Test</button>
+                     </td>
+                  </tr>
+               </table>
+            </div>
+
+
+
+
+            <div class="container-fuild">
+               <div class="row">
+                  <div class="jumbotron" *ngIf="testList">
+                     <h2>Available Tests</h2>
+
+                     <table class="table">
+                        <tr>
+                           <th>Test Id &nbsp;</th>
+                           <th>Test Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                           <th>Action</th>
+                           <th><button type="button" (click)="onClickSubmitForm()"
+                                 class="btn btn-info">Add test</button></th>
+                        </tr>
+                        <tr *ngFor="let test of testList,index as i">
+                           <td>{{test.testId}}</td>
+                           <td>{{test.testName}}</td>
+                           <td>
+                              <svg class="svg-icon" fill="#ff0000" viewBox="0 0 20 20"
+                                 (click)="removeTest(test.testName)">
+                                 <path
+                                    d="M17.114,3.923h-4.589V2.427c0-0.252-0.207-0.459-0.46-0.459H7.935c-0.252,0-0.459,0.207-0.459,0.459v1.496h-4.59c-0.252,0-0.459,0.205-0.459,0.459c0,0.252,0.207,0.459,0.459,0.459h1.51v12.732c0,0.252,0.207,0.459,0.459,0.459h10.29c0.254,0,0.459-0.207,0.459-0.459V4.841h1.511c0.252,0,0.459-0.207,0.459-0.459C17.573,4.127,17.366,3.923,17.114,3.923M8.394,2.886h3.214v0.918H8.394V2.886z M14.686,17.114H5.314V4.841h9.372V17.114z M12.525,7.306v7.344c0,0.252-0.207,0.459-0.46,0.459s-0.458-0.207-0.458-0.459V7.306c0-0.254,0.205-0.459,0.458-0.459S12.525,7.051,12.525,7.306M8.394,7.306v7.344c0,0.252-0.207,0.459-0.459,0.459s-0.459-0.207-0.459-0.459V7.306c0-0.254,0.207-0.459,0.459-0.459S8.394,7.051,8.394,7.306">
+                                 </path>
+                              </svg>
+                           </td>
+                        </tr>
+                     </table>
+                  </div>
+               </div>
+            </div>
+
+
+            <div class="container-fluid">
+               <div class="row">
+                  <div class="jumbotron" *ngIf="status">
+
+                     <h2> Add Test </h2>
+                                   <form #addTest="ngForm" class="form-group" (ngSubmit)="addTestByObject(addTest.value); addTest.resetForm()">
+                                    <div>
+                                       <label for="testName"><strong>Test Name : </strong></label>
+                                       <select class="custom-select" required
+                                            name="testName"
+                                            id="testName"
+                                            #testName="ngModel"
+                                            [(ngModel)]="test.testName"
+                                            class="form-control"
+                                            [ngClass]="{'is-invalid': testName.touched && testName.invalid}"
+                                            pattern="[A-Z][A-Za-z\s-']+">
+                                        <option value="">Select Test</option>
+                                        <option *ngFor="let test of mainTestList">
+                                            {{test.testName}}
+                                        </option>
+                                    </select>
+                                    </div>
+                                   
+                                    <!-- <div *ngIf="categoryName.invalid && categoryName.touched">
+                                      <small class="text-danger">category is required</small>
+                                    </div> -->
+                                    <div class="validations"   *ngIf="testName.invalid && (testName.dirty || testName.touched)">
+                                       <div *ngIf="testName.errors.required" style="color: red;">
+                                                 Test Name is required.
+                                       </div>
+                                       <div *ngIf="testName.errors.pattern" style="color: red;">
+                                                 Test Name should start with Captial Letter
+                                      </div>
+                                       
+                                    </div>
+                                    <div>  
+                                       <button id="addtest" type="submit" class="btn btn-success" [disabled]="addTest.invalid">Add Test</button>
+                                </div>
+
+                                  </form>
+                  </div>
+
+               </div>
+            </div>
+            <div class="container">
+               <button type="button" (click)="goBack()" class="btn btn-success">Go Back</button>
+            </div>
+
+         </div>
+      </div>
+   </section>
+</body>
+
+</html>

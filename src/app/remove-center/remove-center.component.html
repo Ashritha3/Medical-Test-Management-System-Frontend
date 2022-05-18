@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+</head>
+
+<body>
+    <section>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-15">
+                    <img src="https://cdn.pixabay.com/photo/2020/08/03/09/39/medical-5459631_960_720.png"
+                        class="img-fluid" height="100%" alt="">
+                </div>
+                <div class="jumbotron">
+                    <div>
+                        <h2> Delete Center </h2>
+                        <hr>
+                    </div>
+                    <!-- <form #deleteCenter="ngForm" class="form-group" (ngSubmit)="onClickSubmit(deleteCenter.value)">
+                        <div>
+                            <label for="centerName"><strong>Center Name : </strong></label>
+                            <select class="custom-select" required name="centerName" id="centerName"
+                                #centerName="ngModel" [(ngModel)]="centerObj.centerName" class="form-control"
+                                [ngClass]="{'is-invalid': centerName.touched && centerName.invalid}"
+                                pattern="[A-Z][A-Za-z\s-']+">
+                                <option value="">Please Choose...</option>
+                                <option *ngFor="let center of centerList">
+                                    {{center.centerName}}
+                                </option>
+                            </select>
+                        </div> -->
+                        <form #deleteCenter="ngForm" class="form-group" (ngSubmit)="onClickSubmit(deleteCenter.value)">
+                        <div>
+                            <label for="centerName"><strong>Center Name : </strong></label>
+                            <select class="custom-select" required
+                                    name="centerName"
+                                    id="centerName"
+                                    #centerName = "ngModel"
+                                    class="form-control"
+                                    [class.is-invalid]="centerName.invalid && centerName.touched"
+                                    [(ngModel)]="centerObj.centerName">
+                                <option value="" hidden>Please Choose...</option>
+                                <option *ngFor="let center of centerList">
+                                    {{center.centerName}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="validations" *ngIf="centerName.invalid && (centerName.dirty || centerName.touched)">
+                            <div *ngIf="centerName.errors.required" style="color: red;">
+                                CenterName is required.
+                            </div>
+                            <div *ngIf="centerName.errors.pattern" style="color: red;">
+                                CenterName should start with Captial Letter
+                            </div>
+                        </div>
+
+                        <div>
+                            <button type="submit" class="btn btn-info" [disabled]="deleteCenter.invalid">Delete
+                                Center</button>
+                        </div>
+                    </form>
+                    <div class="container">
+                        <button type="button" (click)="goBack()" class="btn btn-success">Go Back</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

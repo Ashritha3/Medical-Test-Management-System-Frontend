@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width = device-width, initial-scale = 1, shrink-to-fit = no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title> Bootstrap 4 Registration Form Example </title>
+    <!-- <style>  
+        body {  
+        color: green;  
+        }  
+        </style>   -->
+</head>
+
+<body>
+    <section class="Form my-4 mx-5">
+        <div class="container-fluid">
+            <div  class="col-lg-12">
+                <div class="jumbotron">
+                    <div class="imgcontainer">
+                        <img src="https://png.pngtree.com/png-clipart/20190924/original/pngtree-user-vector-avatar-png-image_4830521.jpg"
+                            alt="Avatar" class="avatar" style="width: 100px;height: 100px;border-radius: 50%;">
+                    </div>
+                    <br>
+                    <div class="heading">
+                        <h3>Registration</h3>
+                    </div>
+                    <hr>
+
+                    <div>
+                        <form #registerUser="ngForm" class="form-group" (ngSubmit)="onClickSubmit(registerUser.value)">
+                            <div>
+                                <label for="userName"><strong>User Name</strong></label>
+                                <input id="userName" type="text" name="userName" placeholder="User Name"
+                                    pattern="^[a-zA-Z]+(?: [a-zA-Z]+)*$" class="form-control" [(ngModel)]="user.userName" #userName="ngModel"
+                                    required [ngClass]="{'is-invalid':userName.touched && userName.invalid}">
+                                <div class="validations"
+                                    *ngIf="userName.invalid && (userName.dirty || userName.touched)">
+                                    <div *ngIf="userName.errors.required" style="color: red;">
+                                        User Name is required.
+                                    </div>
+
+                                    <div *ngIf="userName.errors.pattern">
+                                        UserName should start with Captial Letter and<br> Range must be 6 to 30
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="userPassword"><strong>Password</strong></label>
+                                <input id="userPassword" type="password" name="userPassword" placeholder="Password"
+                                    pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+                                    class="form-control" [(ngModel)]="user.userPassword" #userPassword="ngModel"
+                                    [ngClass]="{'is-invalid':userPassword.touched && userPassword.invalid}" required>
+                                <div class="validations"
+                                    *ngIf="userPassword.invalid && (userPassword.dirty || userPassword.touched)">
+                                    <div *ngIf="userPassword.errors.required" style="color: red;">
+                                        userPassword is required.
+                                    </div>
+                                    <div *ngIf="userPassword.errors.pattern">
+                                        Password must contain one number,one alphabet,one special
+                                        character and size should be 8 to 14 Range
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="contactNumber"><strong>Contact Number</strong></label>
+                                <input id="contactNumber" type="number" name="contactNumber"
+                                    placeholder="Contact Number" pattern="[6789][0-9]{9}" class="form-control" [(ngModel)]="user.contactNumber"
+                                    #contactNumber="ngModel"
+                                    [ngClass]="{'is-invalid':contactNumber.touched && contactNumber.invalid}" required>
+                                <div class="validations"
+                                    *ngIf="contactNumber.invalid && (contactNumber.dirty || contactNumber.touched)">
+                                    <div *ngIf="contactNumber.errors.required" style="color: red;">
+                                        Contact Number is required.
+                                    </div>
+                                    <div *ngIf="contactNumber.errors.pattern">
+                                        Phone number should be 10 digits
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="userEmail"><strong>Email Address</strong></label>
+                                <input id="userEmail" type="email" name="userEmail" placeholder="Email Address"
+                                    pattern="[a-zA-z][a-zA-Z0-9._]*[@]gmail.com" class="form-control" [(ngModel)]="user.userEmail"
+                                    #userEmail="ngModel"
+                                    [ngClass]="{'is-invalid':userEmail.touched && userEmail.invalid}" required>
+                                <div class="validations"
+                                    *ngIf="userEmail.invalid && (userEmail.dirty || userEmail.touched)">
+                                    <div *ngIf="userEmail.errors.required" style="color: red;">
+                                        Email is required.
+                                    </div>
+                                    <div *ngIf="userEmail.errors.pattern">
+                                        Email must only end with @gmail.com
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="userRole"><strong>User Role</strong></label>
+                                <select id="userRole" class="form-control" name="userRole" [(ngModel)]="user.userRole" #userRole required>
+                                    <option value="USER">USER</option>
+                                    <!-- <option value="ADMIN" >ADMIN</option> -->
+                                </select>
+                                <div class="validations"
+                                    *ngIf="userRole.invalid && (userRole.dirty || userRole.touched)">
+                                    <div *ngIf="userRole.errors.required" style="color: red;">
+                                        UserRole is required.
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="DOB"><strong>Date Of Birth</strong></label>
+                                <input id="DOB" type="date" name="userDOB" placeholder="Date Of Birth" min="1900-01-01" max="2000-12-31"
+                                    class="form-control" [(ngModel)]="dob" #DOB="ngModel"
+                                    [ngClass]="{'is-invalid':DOB.touched && userPassword.invalid}" required>
+                                <div class="validations" *ngIf="DOB.invalid && (DOB.dirty || DOB.touched)">
+                                    <div *ngIf="DOB.errors.required" style="color: red;">
+                                        Date Of Birth is required.
+                                    </div>
+                                    <div *ngIf="DOB.errors.min">
+                                        Age must be more than 16
+                                    </div>
+                                    <div *ngIf="DOB.errors.max">
+                                        Age must be less than 120
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-control1">
+                                <label for="gender"><strong>Gender &nbsp;&nbsp; &nbsp;&nbsp;</strong></label>
+                                <input type="radio" id="gender" value="male" name="gender" [(ngModel)]="user.gender" #gender="ngModel"
+                                    required>
+                                <label for="male">Male &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                <input type="radio" id="gender" value="female" name="gender" [(ngModel)]="user.gender"  #gender="ngModel">
+                                <label for="male">Female</label>
+                            </div>
+                            <div>
+                                <button type="submit" class="btn btn-success"
+                                    [disabled]="registerUser.invalid">Register</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </section>
+</body>
+
+</html>

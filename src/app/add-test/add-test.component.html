@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+     <!-- Required meta tags -->
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+     <!-- Bootstrap CSS -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+     <title>Hello, world!</title>
+</head>
+
+<!-- <body>
+     <section>
+          <div class="container-fluid">
+               <div class="row">
+                    <div class="jumbotron">
+                         <div>
+                              <h2>Add Test</h2>
+                         </div>
+                         <table class="table">
+                              <tr>
+                                   <th>Center Id</th>
+                                   <th>Center Name</th>
+                                   <th>Action</th>
+                              </tr>
+                              <tr *ngFor="let center of centerList,index as i">
+                                   <td>{{center.centerId}}</td>
+                                   <td>{{center.centerName}}</td>
+                                   <td><button type="button" (click)="onClickSubmit(center.centerId)"
+                                             class="btn btn-info">Add Test</button></td>
+                              </tr>
+                         </table>
+                    </div>
+               </div>
+
+          </div>
+
+          <div class="container-fluid">
+               <div class="row">
+                    <div class="jumbotron" *ngIf="status">
+
+                         <h2> Add Test </h2>
+                         <hr>
+                         <form #addTest="ngForm" class="form-group" (ngSubmit)="addTestByObject(addTest.value)">
+                              <div>
+                                   <label for="testName"><strong>Test Name : </strong></label>
+                                   <input type="text" id="testName" name="testName"
+                                        placeholder="@Example : Blood Pressure " class="form-control" ngModel
+                                        #testName="ngModel" pattern="[A-Z][A-Za-z\s-']+"
+                                        [ngClass]="{'is-invalid': testName.touched && testName.invalid}" required>
+                              </div>
+                              <div class="validations" *ngIf="testName.invalid && (testName.dirty || testName.touched)">
+                                   <div *ngIf="testName.errors.required" style="color: red;">
+                                        Test Name is required.
+                                   </div>
+                                   <div *ngIf="testName.errors.pattern" style="color: red;">
+                                        Test Name should start with Captial Letter
+                                   </div>
+
+                              </div>
+                              <div>
+                                   <button id="addtest" type="submit" class="btn btn-success"
+                                        [disabled]="addTest.invalid">Add Test</button>
+                              </div>
+                         </form>
+                    </div>
+
+               </div>
+          </div>
+          <div class="container">
+               <button type="button" (click)="goBack()" class="btn btn-success">Go Back</button>
+          </div>
+     </section>
+</body>
+
+</html> -->
+<body>
+     <section>
+     <div class="container-fluid">
+         <div class="row">
+             <div class="col-lg-15">
+                 <img src="https://cdn.pixabay.com/photo/2020/08/03/09/39/medical-5459631_960_720.png" class="img-fluid"
+                     height="100%" alt="">
+             </div>
+             <div class="jumbotron">
+                 <div>
+                     <h2> Add Test </h2>
+                     <hr>
+                 </div>
+                 <form #addTest="ngForm" class="form-group" (ngSubmit)="onClickSubmit(addTest.value); addTest.resetForm()">
+                     <div>
+ 
+                          <div>
+                             <label for="testName"><strong>Test Name : </strong></label>
+                             <input type="text" id="testName" name="testName" class="form-control" 
+                                 placeholder="@Example : ECG Test" #testName="ngModel" ngModel
+                                 pattern="[A-Z][A-Za-z\s-']+"
+                                 [ngClass]="{'is-invalid':testName.touched && testName.invalid}" required>
+                         </div>
+                         <div class="validations" *ngIf="testName.invalid && (testName.dirty || testName.touched)">
+                             <div *ngIf="testName.errors.required" style="color: red;">
+                                 TestName is required.
+                             </div>
+                             <div *ngIf="testName.errors.pattern" style="color: red;">
+                                 TestName should start with Captial Letter
+                             </div>
+                         </div> 
+                         <!-- <div>
+                              <label for="tests" >TestName :</label>
+                              <select id="tests" name="testName">
+                                   <option>TestName</option>
+                                   <option></option>
+                              </select>
+                         </div>-->
+  
+                         <div>
+                             <button type="submit" class="btn btn-info" [disabled]="addTest.invalid">Add
+                                 Test</button>
+                         </div>
+                     </div>
+                 </form>
+                 <div class="container">
+                     <button type="button" (click)="goBack()" class="btn btn-success">Go Back</button>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </section>
+ </body>
+ 
+ </html>

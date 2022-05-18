@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+</head>
+
+<body>
+    <section>
+        <div class="row">
+            <!-- <div class="col-lg-15">
+                <img src="https://cdn.pixabay.com/photo/2020/08/03/09/39/medical-5459632_960_720.png"
+                    class="img-fluid" height="100%" alt="">
+            </div> -->
+        <div class="container-fluid">
+                <div class="jumbotron">
+                    <h2>List Of Centers</h2>
+                    <br>
+                    <table class="table">
+                        <tr>
+                            <th>Center Id</th>
+                            <th>Center Name</th>
+                            <th>Action</th>
+                        </tr>
+                        <tr *ngFor="let center of centerList">
+                            <td>{{center.centerId}}</td>
+                            <td>{{center.centerName}}</td>
+                            <td><button type="button" (click)="onClickSubmit(center.centerId)"
+                                    class="btn btn-info">Select</button></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+        <form class="container-fluid" #makeAppointment="ngForm" (ngSubmit)="getFormData(makeAppointment.value); makeAppointment.resetForm()">
+
+            <div class="row">
+                <div class="jumbotron">
+                    <div class="form-group">
+                        <label for="testId"><strong>Select Test </strong></label> <br>
+                        <select name="testId" id="testId" ngModel #testId="ngModel" class="form-control" required>
+                            <option *ngFor="let test of testList" [ngValue]="test.testId">{{test.testName}}</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dateTime"><strong>Select Date and Time</strong></label> <br>
+                        <input type="datetime-local" id="dateTime" name="dateTime" class="form-control"
+                            min="2010-01-01 06:30:00" max="2023-12-31 21:00:00" ngModel #dateTime="ngModel" required>
+                        <div class="validations" *ngIf="dateTime.invalid && (dateTime.dirty || dateTime.touched)">
+                            <div *ngIf="dateTime.errors.required" style="color: red;">
+                                select data and time
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-info" [disabled]="makeAppointment.invalid">Confirm
+                            Appointment</button>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+
+        <div class="container">
+            <button type="button" (click)="goBack()" class="btn btn-success">Go Back</button>
+        </div>
+    </section>
+</body>
+
+</html>

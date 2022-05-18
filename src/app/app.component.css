@@ -1,0 +1,64 @@
+
+body
+{
+    height: auto;
+    min-height: 1000px;
+    background-image: inherit;
+    background-repeat: no-repeat;
+    background-position: inherit;
+    background-size: cover;
+           
+}
+.jumbotron
+{
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 50px;
+    width: 300px;  
+    height: 200px;   
+    transition: width 2s, height 2s, transform 2s;  
+}
+.jumbotron:hover
+{
+     transform: scale(0.8,0.8)
+}
+
+#link1
+{
+   background-image: url("../assets/image/awareness1.jpeg");
+   background-size: 100% 100%;    
+}
+#link2
+{
+    background-image: url("../assets/image/awareness2.jpeg");
+    background-size: 100% 100%;
+}
+#link3
+{
+    background-image: url("../assets/image/awareness3.jpeg");
+    background-size: 100% 100%;
+}
+#link4
+{
+    background-image: url("../assets/image/awareness4.jpeg");
+    background-size: 100% 100%;
+}
+
+header
+{   
+    height: 100px;
+    background-size: 100% 100%;
+    background-image: inherit;
+    background-repeat: no-repeat;
+    background-position: inherit;
+    background-size: cover;
+    background-image: url("../assets/image/header2.jpg");
+}
+footer
+{
+    background-image: inherit;
+    background-repeat: no-repeat;
+    background-position: inherit;
+    background-size: cover;
+    background-image: url("../assets/image/footer.jpg");
+}

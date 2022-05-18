@@ -1,0 +1,77 @@
+body{
+    background-image: url('https://cdn.pixabay.com/photo/2020/08/03/09/39/medical-5459632_960_720.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: -500%;
+    height: 100vh;
+    width: 100vh;
+}
+.container
+{
+    margin-top: 50px;
+    margin-left: 600px;
+    width: auto ;
+    background-color: white;
+    border-radius: 25px;
+}
+h3
+{
+    padding: 20px;
+    margin-top: 5px;
+    text-shadow: 8px 8px 5px rgb(160, 159, 159);
+}
+#appointmentId
+{
+    width: 300px;
+}
+button
+{
+    width: 100px;
+    box-shadow: 13px 13px 20px  #9d9c9c;
+    margin-left: 10px;
+    border-radius: 30px;
+}
+h2,h4
+{
+    text-align: center;
+}
+.jumbotron
+{
+    margin-top: 20px;
+    margin-left: 800px;
+    margin-right: 20%;
+    margin-bottom: 2px;
+    width: 700px;;
+    padding-bottom: 0%;     
+    padding-top: 0%;
+    padding-bottom: 2%;
+    box-shadow:     
+                13px 13px 20px  #5f5f5f;
+    border-radius: 30px;
+}
+.form-control
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 50px;   
+    border: none;
+    outline:none;
+    background: none;
+    font-size: 18px;
+    color: rgb(160, 160, 160);
+    padding:20px 30px 20px 20px;
+    border-radius: 25px;
+    box-shadow:     
+                inset 5px 5px 5px #cbced1,
+                inset -5px -5px 5px #ffffff;      
+}
+h2,label,td,th
+{
+    margin-left: 10px;
+    margin-bottom: 10px;
+    text-shadow: 5px 5px 5px #aaa;  
+}
+#goback
+{
+    margin-top: 20px;
+}

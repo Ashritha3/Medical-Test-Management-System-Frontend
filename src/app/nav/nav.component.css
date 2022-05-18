@@ -1,0 +1,56 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.home{
+  background:linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)), url('https://cdn.pixabay.com/photo/2020/04/19/20/10/test-tube-5065426_960_720.jpg');
+  background-size: 100% 100%;
+  width: 100%;
+  padding: 180px 0 ;
+}
+section.doctor img{
+width: 130px;
+height: 130px;
+border-radius: 50%;
+}
+
+section.service img{
+  width: 130px;
+height: 130px;
+border-radius: 50%;
+}
+
+section.call img{
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+}
+
+
+hr{
+  width: 10%;
+  border-width: 4px;
+  background-color: brown;
+  margin: auto;
+  margin-bottom: 80px;
+  
+}
+
+section.doctor .card{
+  -webkit-box-shadow: 3px 2px 24px -6px rgba(0,0,0,0.75);
+  -moz-box-shadow: 3px 2px 24px -6px rgba(0,0,0,0.75);
+  box-shadow: 3px 2px 24px -6px rgba(0,0,0,0.75);
+
+  
+}
+
+.fa-solid{
+  color: palevioletred;
+  font-size: 40px;
+  padding-bottom: 20px;
+}
+.contact{
+  background: linear-gradient(rgba(246,4,65,0.685), rgba(255,5,26,0.65)), url('https://cdn.pixabay.com/photo/2020/05/19/12/59/phone-5190643__340.jpg') no-repeat;
+  background-size: 100% 100%;
+}
